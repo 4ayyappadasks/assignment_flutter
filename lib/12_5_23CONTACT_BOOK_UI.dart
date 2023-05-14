@@ -33,6 +33,7 @@ class Contact extends StatelessWidget {
             ]),
               ));
     },
-    itemCount: names.length,));
+    itemCount: names.length,)
+    );
   }
 }
