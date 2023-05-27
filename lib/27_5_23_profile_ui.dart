@@ -109,6 +109,8 @@ class _profile_uiState extends State<profile_ui> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30)),
                               child: ListTile(
+                                  trailing: Icon(Icons.keyboard_arrow_right,
+                                      color: Colors.black),
                                   leading:
                                       Icon(icn[index], color: Colors.black),
                                   title: Text(
