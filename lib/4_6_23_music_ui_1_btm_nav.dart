@@ -1,11 +1,11 @@
 
-import 'package:assignment_flutter/4_5_23_music_ui_3.dart';
-import 'package:assignment_flutter/4_5_23_music_ui_4.dart';
+import 'package:assignment_flutter/4_5_23_music_ui_1_search.dart';
+import 'package:assignment_flutter/4_5_23_music_ui_1_setting.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';
 
-import '4_5_23_music_ui_1.dart';
-import '4_5_23_music_ui_2.dart';
+import '4_6_23_music_ui_1_playlist.dart';
+import '4_5_23_music_ui_1_home.dart';
 
 void main() {
   runApp(MaterialApp(

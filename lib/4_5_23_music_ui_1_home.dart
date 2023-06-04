@@ -12,7 +12,11 @@ class _msk_ui1State extends State<msk_ui1> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-      child: Container(decoration: BoxDecoration(color: Colors.black)),
+      child: Container(
+          decoration: BoxDecoration(
+              color: Colors.black,
+              image: DecorationImage(
+                  image: AssetImage("assets/images/musicui1_1.jpg"),fit: BoxFit.cover))),
     ));
   }
 }
