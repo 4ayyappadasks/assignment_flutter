@@ -17,6 +17,7 @@ class placedetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo[700],
         title: Text("My Wishlist"),
       ),
       body: Center(

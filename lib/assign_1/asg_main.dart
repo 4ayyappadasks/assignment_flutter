@@ -23,21 +23,25 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Trip Founder"),
+        title: Center(child: Text("Trip Founder")),
         backgroundColor: Colors.indigo[700],
         bottom: PreferredSize(
-            child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadiusDirectional.circular(20)),
-                child: TextField(
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.search),
-                    hintText: "search your hevan",
-                      border: InputBorder.none),)), preferredSize:Size.fromHeight(50)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 300,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadiusDirectional.circular(20)),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      suffixIcon: Icon(Icons.search),
+                      hintText: "search your hevan",
+                        border: InputBorder.none),)),
+            ), preferredSize:Size.fromHeight(50)),
       ),
       body: ListView(
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(5),
         children: places
             .map(
               (element) => ListTile(
