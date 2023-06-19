@@ -36,6 +36,6 @@ class _btmState extends State<btm> {
             BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.search_rounded),label: "Explore"),
             BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
-          ]),body: Center(child: src[index]),);
+          ]),body: SafeArea(child: Center(child: src[index])),);
   }
 }

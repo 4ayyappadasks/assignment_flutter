@@ -1,11 +1,16 @@
+import 'package:assignment_flutter/18_6_23_hotel_booking/resources/dummy.dart';
+import 'package:assignment_flutter/18_6_23_hotel_booking/resources/top_scroll.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: p1(),
-  ));
-}
+import '../resources/appbar.dart';
+import '../resources/vertical_bottom_scroll.dart';
+
+// void main() {
+//   runApp(MaterialApp(
+//     debugShowCheckedModeBanner: false,
+//     home: p1(),
+//   ));
+// }
 
 class p1 extends StatefulWidget {
   const p1({Key? key}) : super(key: key);
@@ -67,127 +72,41 @@ class _p1State extends State<p1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: ListView(children: [
-            /// appbar
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 200,
-              child: Column(children: [
-                ListTile(
-                  title:
-                  Text("Hello @ks", style: TextStyle(color: Colors.grey)),
-                  subtitle: Text("Find your FAV HoTel",
-                      style: TextStyle(color: Colors.black)),
-                  trailing: CircleAvatar(
-                      backgroundImage: AssetImage(
-                          "assets/images/25_5_23_listui_delhi.png")),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [BoxShadow(color: Colors.grey,spreadRadius: 2,blurRadius: 30)],
-                        borderRadius: BorderRadiusDirectional.circular(10),
-                        color: Colors.grey[300],),
-                      height: 50,
-                      width: 350,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            border: InputBorder.none,
-                            hintText: "search your hotel"),
-                      )),
-                )
-              ]),
-            ),
-            /// top scroll
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: 290,
-                child: ListView.builder(
-                  itemCount: 9,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) =>
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 300,
-                          width: 200,
-                          decoration: BoxDecoration(boxShadow: [BoxShadow(
-                              color: Colors.black,
-                            blurRadius: 1,
-                            blurStyle: BlurStyle.outer
-                          )],
-                              image: DecorationImage(alignment: Alignment.topCenter,image:AssetImage(img2[index])),
-                              borderRadius: BorderRadiusDirectional.circular(20)),
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 130),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                  children: [
-                                    ListTile(
-                                      title: Text(names[index]),
-                                      subtitle: Text("5 star hotel"),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.values[3],
-                                      children: [
-                                        Text(rate[index],style: TextStyle(fontSize: 20,color: Colors.blue)),
-                                        Text("ccx xc",style: TextStyle(fontSize: 20,color: Colors.blue)),
-                                      ],)
-                                  ]),
-                            ),
-                          ),
-                        ),
-                      ),)
-            ),
-            Container(
-              height: 1700,
-              width: MediaQuery.of(context).size.width,
-              child: ListView.builder(physics: NeverScrollableScrollPhysics(),
-                itemCount: 9,itemBuilder: (context, index) =>
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 170,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(boxShadow: [BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 1,
-                          spreadRadius: 0,
-                          blurStyle: BlurStyle.outer
-                      )],
-                          image: DecorationImage(
-                              alignment: Alignment.bottomLeft,
-                              image: AssetImage(img[index])),
-                          borderRadius: BorderRadiusDirectional.circular(15)),
-                      child: Padding(
-                          padding: EdgeInsets.only(left: 160),
-                          child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              ListTile(
-                                title: Text(names[index]),
-                                subtitle: Text("5 star hotel"),
-                                trailing: ElevatedButton(onPressed: (){}, child: Text("BOOK NOW")),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 115),
-                                child: Text(rate[index],style: TextStyle(fontWeight:FontWeight.bold ,fontSize: 20,color: Colors.blue)),
-                              ),
-                              Row(children: [
-                                IconButton(onPressed: (){}, icon:Icon(Icons.car_crash_rounded,color: Colors.blue,)),
-                                IconButton(onPressed: (){}, icon:Icon(Icons.bed_sharp,color: Colors.blue)),
-                                IconButton(onPressed: (){}, icon:Icon(Icons.wine_bar_sharp,color: Colors.blue)),
-                                IconButton(onPressed: (){}, icon:Icon(Icons.wifi,color: Colors.blue))],)
-                            ],
-                          )),
-                    ),
-                  ),),
-            )
-          ],),
-      ),
+      body: SingleChildScrollView(
+        child: Column(children: [
+          apbar(),
+          Text("POPULAR HOTEL",style: TextStyle(color: Colors.black,fontSize: 20)),
+          Container(
+            width:MediaQuery.of(context).size.width,
+            height: 310,
+            child:
+              ListView(
+                scrollDirection: Axis.horizontal,
+                children: dum.map((e) =>topsc(
+                  rate: Text(e["rate"],style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blue)),
+                  tittle: Text(e["name"],style: TextStyle(fontSize: 20)),
+                  subtittle: Text(e["des"]),
+                  rating: Text("${e["ratings"]}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blue)),
+                  immg: AssetImage(e["img"]),)
+              ).toList(),)
+            // ListView.builder(
+            //   scrollDirection: Axis.horizontal,
+            //   itemCount: 20,
+            //   itemBuilder: (context, index) => topsc(),),
+          ),
+          Text("HOTEL PACKAGE",style: TextStyle(color: Colors.black,fontSize: 20)),
+          Container(
+            height:2000,
+            width:MediaQuery.of(context).size.width,
+          child: ListView(
+            physics: NeverScrollableScrollPhysics(),
+          children: dum.map((e) => btmsc(
+            tittle:Text(e["name"],style: TextStyle(fontSize: 20)),
+            subtittle: Text(e["des"]),
+            rate: Text("${e["rate"]}",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blue)),
+            im: AssetImage(e["imgg"]),)).toList()),)
+        ],),
+      )
     );
   }
 }
