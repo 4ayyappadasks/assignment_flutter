@@ -35,6 +35,7 @@ dependencies:
   sliding_clipped_nav_bar: ^3.1.0+4
   carousel_slider: ^4.2.1
   scroll_loop_auto_scroll: ^0.0.5
+  flutter_pannable_rating_bar: ^2.7.2+1
 
 
   # The following adds the Cupertino Icons font to your application.
