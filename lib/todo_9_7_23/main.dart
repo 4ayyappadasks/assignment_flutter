@@ -61,7 +61,7 @@ class _hivep1State extends State<hivep1> {
       body: SafeArea(
           child: Center(
             child: data.isEmpty
-                ? Lottie.asset("assets/animation/refresh.json",width: 200,height: 200)
+                ? Text("NO CONTACTS")
                 : ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
