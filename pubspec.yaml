@@ -36,6 +36,9 @@ dependencies:
   carousel_slider: ^4.2.1
   scroll_loop_auto_scroll: ^0.0.5
   flutter_pannable_rating_bar: ^2.7.2+1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  lottie: ^2.4.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -68,6 +71,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/animation/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
