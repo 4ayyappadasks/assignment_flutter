@@ -43,13 +43,13 @@ class _hivep1State extends State<hivep1> {
           return [
             PopupMenuItem(child: GestureDetector(onTap: () {
               showsheet(null);
-            },child: Text("new contact")))
+            },child: Text("new todo")))
           ];
         },)],
         bottom: PreferredSize(child: Container(), 
             preferredSize: Size.fromHeight(50)),
           backgroundColor: Colors.indigo[900],
-          title: Center(child: Text("CONTACTS"),)),
+          title: Center(child: Text("TODO"),)),
       body: SafeArea(
           child: Center(
             child: data.isEmpty
@@ -101,7 +101,7 @@ class _hivep1State extends State<hivep1> {
       email.text=uptdata["email"];
     }
 
-    showModalBottomSheet(
+    showModalBottomSheet(backgroundColor: Colors.indigo[100],
       isScrollControlled: true,
       context: context,
       builder: (context) {
